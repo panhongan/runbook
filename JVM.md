@@ -27,6 +27,7 @@
 -Duser.timezone=UTC
 ```
 <br></br>
+
 2.G1配置后检查要点  
 ```
 1. Young gc time cost 和Young gc frequency
@@ -36,9 +37,24 @@
 5. 是否出现 Metadata space expansion, 伴随Full GC
 ```
 <br></br>
+
 3.常用JVM命令
 ```
 查看默认GC: java -XX:+PrintCommandLineFlags -version
 查看JVM参数默认初始值：java -XX:+PrintFlagsInitial
 查看JVM参数最新值：java -XX:+PrintFlagsFinal
 ```
+<br></br>
+
+4.classpath覆盖  
+```
+覆盖默认的classpath文件（一般在resources目录）：
+1). java -cp <新classpath路径>:<老的classpath> <main class> <args>
+新classpath要放在老classpath之前，搜索第一个符合即可.
+
+2). java -Xbootclasspath/a:<自定义classpath> -jar xx.jar
+不建议使用 -Xbootclasspath/p，有系统风险。
+```
+<br></br>
+
+5. 
