@@ -24,7 +24,7 @@ server-id       = 1
 log-bin         = master-bin
 pid-file	= /var/run/mysqld/mysqld.pid
 socket		= /var/run/mysqld/mysqld.sock
-datadir		= /conviva/var/lib/mysql
+datadir		= /var/lib/mysql1
 log-error	= /var/log/mysql/error.log
 character-set-server = utf8mb4
 collation-server = utf8mb4_general_ci
@@ -41,7 +41,7 @@ relay-log       = relay-log-bin
 read-only       = 1
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
-datadir         = /conviva/var/lib/mysql
+datadir         = /var/lib/mysql1
 log-error       = /var/log/mysql/error.log
 character-set-server = utf8mb4
 collation-server = utf8mb4_general_ci
@@ -69,7 +69,7 @@ Add following lines:
 ```
 mkdir -p /var/lib/mysql1 (optional, if datadir is user specified)
 chown mysql:mysql /var/lib/mysql1 
-chmod 755 /conviva/var/lib/mysql 1
+chmod 755 /var/lib/mysql 1
 service apparmor restart
 mysqld --defaults-file=/etc/mysql/mysql.cnf  --initialize --user=mysql
 service mysql start
