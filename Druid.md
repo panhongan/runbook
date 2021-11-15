@@ -68,11 +68,10 @@
 ```
 java -server -XX:+IgnoreUnrecognizedVMOptions \
     -XX:+UseG1GC -Xms2g -Xmx2g \
-    -cp /opt/grove/.stage/deploy/eedb9ef47484/imply-3.4.9/dist/resources:/opt/grove/.stage/deploy/eedb9ef47484/imply-3.4.9/dist/druid/lib/*:/opt/imp
-ly/conf/druid/user-classpath:/opt/imply/conf/druid/user-classpath/* \
+    -cp <druid_home>>/lib/*: \
     org.apache.druid.cli.Main tools dump-segment \
     --directory /mnt/dump-segment/unzip/ \
     --out /mnt/dump-segment/dump/segment.txt
 
---directory: the target directory after index file unzipped
+--directory: the segment directory or the target directory after index file unzipped
 ```
